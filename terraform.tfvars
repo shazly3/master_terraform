@@ -1,5 +1,5 @@
 #local
-my_ip = "156.217.132.179/32"
+my_ip = "156.217.233.89/32"
 public_key_location = "/home/elshazly/.ssh/id_rsa.pub"
 
 
