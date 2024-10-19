@@ -1,7 +1,3 @@
-#Ansible_Server
-output "ansible_public_ip" {
-    value = module.ansible_server.ansible_server.public_ip 
-}
 
 #Jenkins_Server
 output "jenkins_public_ip" {

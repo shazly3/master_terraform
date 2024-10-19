@@ -1,29 +1,4 @@
-#Ansible_Server
-module "ansible_subnet" {
-    source = "./modules/ansible_subnet"
-    ansible_cidr_blocks = var.ansible_cidr_blocks
-    ansible_avail_zone = var.ansible_avail_zone
-    ansible_igw = var.ansible_igw
-    ansible_vpc_id = aws_vpc.ansible_vpc.id
-}
 
-module "ansible_server" {
-    source = "./modules/ansible_server"
-    my_ip = var.my_ip
-    public_key_location = var.public_key_location
-    ansible_instance_type = var.ansible_instance_type
-    ansible_avail_zone = var.ansible_avail_zone
-    ansible_subnet_id = module.ansible_subnet.ansible_subnet.id
-    ansible_vpc_id = aws_vpc.ansible_vpc.id
-}
-
-resource "aws_vpc" "ansible_vpc" {
-    cidr_block = var.ansible_cidr_blocks[0].cidr_block
-    tags = {
-        Name = var.ansible_cidr_blocks[0].name
-    }
-
-}
 
 #Jenkins_Server
 module "jenkins_subnet" {
